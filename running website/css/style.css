@@ -1,0 +1,1098 @@
+@font-face {
+  font-family: 'Kyiv Sans';
+  src: url('/assets/fonts/KyivTypeSans.woff2') format('woff2-variations');
+  font-weight: 0 1000;
+  font-display: swap;
+}
+
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'Kyiv Sans', serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 80%;
+  margin: auto;
+}
+
+.head_container {
+  max-width: 90%;
+  margin: auto;
+}
+
+/*--------------header--------*/
+header {
+  height: 8vh;
+}
+
+header nav {
+  background-color:   #053eff; /* Colore giallo */
+  padding: 20px 10px; /* Aggiungi spazio sopra/sotto al background se necessario */
+  width: 100%; /* Larghezza al 100% del background */
+  top: 0; /* Inizia dall'alto della finestra */
+  right: 0; /* Inizia dal lato destro della finestra */
+  position: absolute;
+  display: flex; /* Assicurati che i contenuti siano allineati orizzontalmente */
+  justify-content: right; /* Allinea il menu a destra */
+}
+
+.nav-book {
+  color: white;
+  background-color: black;
+  padding: 10px 80px;
+}
+.nav-book:hover {
+  background-color:  #053eff;
+  color: white;
+  padding: 20px 80px;
+}
+
+/* Stili per il menu (ul, li, a, ecc.) */
+
+
+
+.hambuger {
+  display: none;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  transition: all 0.3s ease-in-out;
+  background-color: #fff;
+}
+
+header ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header ul li {
+  margin-left: 3rem;
+}
+
+header ul li a {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: white;
+  position: relative;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+header ul li a:hover::before,
+header ul li a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: white;
+}
+
+header ul li a:hover::before {
+  top: -3px;
+}
+
+header ul li a:hover::after {
+  bottom: -3px;
+}
+@media only screen and (max-width: 768px) {
+  header ul {
+    display: block;
+    position: fixed;
+    left: -100%;
+    top: 5rem;
+    flex-direction: column;
+    background-color: #fff;
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.5s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    z-index: 20;
+  }
+
+  header ul.active {
+    left: 0%;
+  }
+
+  header ul li {
+    margin: 2.5rem 0;
+  }
+
+  header ul li a {
+    color: black;
+  }
+
+  .hambuger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .hambuger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hambuger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hambuger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+
+}
+
+/*--------------header--------*/
+/*--------------home--------*/
+.home .image img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Sposta l'immagine indietro di metà della sua larghezza e altezza per centrarla */
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.home {
+  height: 500px;
+}
+
+.home .text {
+  max-width: 50%;
+  color: white;
+  margin: 20% 0 0 10%;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.home h1 {
+  font-size: 500px;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.home p {
+display: none;
+}
+
+button {
+  padding: 20px 40px;
+  background: none;
+  outline: none;
+  border: 2px solid white;
+  border-radius: 50px;
+  color: white;
+  margin-top: 20px;
+}
+
+.home button {
+  margin-left: 50px;
+}
+
+.home .image_item {
+  position: absolute;
+  top: 20%;
+  right: 20%;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.home .image_item img {
+  width: 140px;
+  height: 94px;
+  margin: 10px;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+
+.home .image_item img.active {
+  border: 2px solid white;
+}
+
+.home .box .text {
+  position: relative;
+}
+
+.home .box .text::after {
+  position: absolute;
+  content: 'RUN';
+  font-size: 300px;
+  top: -100%;
+  left: 100%;
+  font-weight: sans;
+  opacity: 0.1;
+}
+
+
+
+/*--------------home--------*/
+/*--------------book--------*/
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 60px;
+}
+
+.about {
+  margin-top: 50%;
+}
+
+
+/*--------------book--------*/
+/*--------------about--------*/
+.top {
+  margin-top: 30%;
+}
+
+.mtop {
+  margin-top: 5%;
+}
+
+.left, .right {
+  width: 50%;
+}
+
+@media screen and (max-width: 768px) {
+  .right .button-container {
+    display:inline-flex;
+    margin-left: -50px;
+    margin-bottom: 20px;
+  }
+
+  .right .button-container .btn1 {
+    /* Adjust the width, height, font size, and padding to make the buttons smaller */
+    width: 100px;
+    height: 40px;
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+}
+
+
+
+.about .img {
+  position: relative;
+}
+
+
+
+.about .image1 {
+  width: 310px;
+  height: 450px;
+  border-radius: 8px;
+}
+
+
+.about .image2 {
+  width: 325px;
+  height: 220px;
+  position: absolute;
+  bottom: 5px;
+  z-index: 2;
+  right: 30%;
+}
+
+.heading {
+  position: relative;
+}
+
+.heading::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  width: 100px;
+  height: 5px;
+  background: lightgoldenrodyellow;
+}
+
+.heading h5 {
+  font-size: 25px;
+  font-weight: 300;
+  margin: 20px 0 40px 0;
+  color: #222222;
+}
+
+.heading h2 {
+  font-weight: 300;
+  letter-spacing: 2px;
+  padding-top: 10px;
+  color: #1E1E;
+}
+
+.heading p {
+  margin-bottom: 20px;
+  line-height: 25px;
+  color: #222222;
+}
+
+.heading .btn1 {
+  margin: 50px 0 20px 50px;
+}
+
+.button1 {
+  background-color: #808080;
+  padding: 100px;
+  animation: constantAnimation 5s infinite alternate;
+  position: absolute;
+  right: 10%;
+}
+
+@keyframes constantAnimation {
+  0% {
+    background-color: #808080;
+  }
+  100% {
+    background-color: white; /* Cambia il colore di sfondo desiderato */
+  }
+}
+
+.btn2 {
+  background: white;
+  color:   white;
+  padding: 12px 24px; /* Increase padding for a larger button */
+  border: none;
+  border-radius: 6px;
+  font-size: 18px; /* Increase font size for larger text */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn1 {
+  background:  #053eff;
+  color:   white;
+  padding: 12px 24px; /* Increase padding for a larger button */
+  border: none;
+  border-radius: 6px;
+  font-size: 18px; /* Increase font size for larger text */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+
+/* Styles when hovering over the button */
+.btn2:hover {
+  background: black; /* Brighter orange on hover */
+  color: white;
+}
+
+
+.btn2:hover::before,
+.btn2::after {
+  content: "🏃‍♂️";
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: none;
+}
+
+.btn1:hover {
+  background: black; /* Brighter orange on hover */
+  color: white;
+}
+
+/* Styles when the button is clicked */
+.btn2:active {
+  transform: scale(1.1); /* Scale up the button when clicked */
+}
+.btn1:active {
+  transform: scale(1.1); /* Scale up the button when clicked */
+}
+
+/*--------------about--------*/
+/*--------------wrapper--------*/
+.wrapper {
+  background-image: url("../image/beforeyougo.WebP");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: 1000px;
+  position: relative;
+  margin-top: 25vh;
+}
+
+.wrapper .text {
+  background:  #1A1A1A;
+  padding-left: 50px;
+  padding-top: 50px;
+  padding-right: 20px;
+  width: 40%;
+  height: 740px;
+  position: absolute;
+  top: -13%;
+  right: 10%;
+  color:  #053eff;
+  font-size: 12px;
+}
+
+.wrapper .content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row-gap: 30px;
+}
+
+.wrapper h2 {
+  font-weight: 400;
+}
+
+#people {
+  color:  #053eff;
+}
+#people-two {
+  font-size: 200px;
+  font-weight: 500;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.wrapper p {
+  margin: 10px 0 20px 0;
+  line-height: 20px;
+  color: white;
+}
+
+.wrapper .note {
+  color: white;
+}
+
+.wrapper i {
+  margin: 5px 20px 0 0;
+}
+
+/*--------------wrapper--------*/
+/*--------------room--------*/
+.flex1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.room .grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.room img {
+  width: 100%;
+  height: 100%;
+}
+
+.room .box {
+  box-shadow: 0 13px 43px 0 rgb(37 46 89/10%);
+}
+
+.room .text {
+  padding: 20px;
+}
+
+.room h3 {
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.room p span {
+  font-size: 12px;
+  color: grey;
+}
+
+.room p {
+  font-size: 20px;
+}
+
+#routes {
+  transition: transform 0.2s, cursor 0.2s;
+}
+
+#routes:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/*--------------room--------*/
+/*--------------wrapper2--------*/
+.wrapper2 {
+  background-image: url("../image/jogging.WebP");
+}
+
+.wrapper2 .text {
+  left: 10%; 
+}
+
+.wrapper2 h5,
+.wrapper2 h2 {
+  color: #333333;
+}
+
+.wrapper2 img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10%;
+  margin-right: 20px;
+}
+
+.wrapper2 .para h2 {
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.wrapper2 .para {
+  margin-left: 5%;
+  font-size: 15px;
+  font-weight: 300;
+  margin-top: 50px;
+}
+
+/*--------------wrapper2--------*/
+/*--------------restaurant--------*/
+.restaurant img {
+  width: 100%;
+  height: 100%;
+}
+
+.restaurant .right {
+  padding: 50px 50px 50px 100px;
+}
+
+.restaurant h2 {
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.restaurant .text p {
+  margin-bottom: 50px;
+  line-height: 25px;
+}
+
+.accordionItem {
+  margin-top: 30px;
+}
+
+.accordionItem p {
+  font-size: 15px;
+  opacity: 0.8;
+  line-height: 20px;
+}
+
+.accordionIHeading {
+  cursor: pointer;
+  width: 100%;
+  border-radius: 3px;
+  font-weight: 400;
+  font-size: 17px;
+  color:  #053eff;
+  margin-bottom: 20px;
+}
+
+.close .accordionItemContent {
+  height: 0px;
+  transition: height 1s ease-out;
+  transform: scaleY(0);
+  float: left;
+  display: block;
+  background-color: #fff;
+}
+
+.open .accordionItemContent {
+  padding: 30px;
+  background-color: #fff;
+  width: 100%;
+  margin: 0 0 10px 0;
+  display: block;
+  transform: scaleY(1);
+  transform-origin: top;
+  transition: transform 0.4s ease;
+  box-sizing: border-box;
+  box-shadow: 0 13px 43px 0 rgb(37 46 89 / 10%);
+}
+
+/*--------------restaurant--------*/
+/*--------------gallary--------*/
+.gallery img {
+  width: 170px;
+  height: 350px;
+  
+}
+
+.image-gallery {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.gallery-item {
+  flex: 0 0 calc(20% - 10px);
+  margin-bottom: 10px;
+  overflow: hidden; /* Hide overflow content (image) */
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.7; /* Initial opacity when not hovered */
+  transition: opacity 0.3s ease; /* Add a smooth transition effect */
+}
+
+.gallery-item:hover img {
+  opacity: 1; /* Full opacity when hovered */
+}
+
+
+
+
+
+/*--------------gallary--------*/
+/*--------------map--------*/
+
+.top .heading  {
+  margin-left: 10%;
+  margin-top: -200px;
+}
+  
+
+.map iframe {
+  margin-top: 40px;
+  width: 100%;
+}
+
+
+/*--------------map--------*/
+/*--------------footer--------*/
+
+footer {
+  text-align: center; /* Center the content within the footer */
+  margin-bottom: 20px; /* Optional: Add space above the footer */
+  position: relative; /* Position the footer absolutely */
+  left: 50%; /* Center the footer horizontally */
+  top: 50%; /* Center the footer vertically */
+  transform: translate(-50%, -50%); /* Adjust to center the footer perfectly */
+
+}
+
+
+footer h3 {
+  margin-bottom: 20px;
+  font-weight: 1;
+}
+
+footer li {
+  margin-bottom: 15px;
+  transition: 0.5s;
+}
+
+footer li:hover {
+  color:  #053eff;
+  cursor: pointer;
+}
+
+footer .payment {
+  grid-template-columns: repeat(4, 2fr);
+}
+footer .payment  {
+  display: inline;
+}
+
+/*--------------footer--------*/
+@media only screen and (max-width:768px) {
+
+  header ul li a {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    position: relative;
+    text-decoration: none;
+    transition: 0.5s;
+  }
+  .home .box .text {
+    margin-top: 40%;
+    max-width: 100%;
+  }
+
+  .home .box .text::after,
+  .home .image_item {
+    display: none;
+  }
+
+  .restaurant .container,
+  .about .container,
+  .book .container {
+    flex-direction: column;
+  }
+
+  .about {
+    margin-top: -10vh;
+  }
+  .about .img {
+    left: 5%;
+  }
+
+  .home .image img {
+    transform: translate(-50%, -50%); /* Center the image */
+    z-index: -1;
+    width: auto; /* Allow the image to adjust its width */
+    height: 100vh; /* Set the height to 100vh */
+    max-width: 100%; /* Limit the image width to the screen width */
+    object-fit: cover; /* Maintain the aspect ratio and cover the container */
+  }
+  
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .left, .right {
+    width: 100%;
+    margin-top: 35vh;
+  }
+
+
+  .wrapper .text {
+    width: 80%;
+  }
+
+  .room {
+    margin-bottom: 100px;
+  }
+
+  .room .grid {
+    grid-template-columns: repeat(1, 1fr);
+    
+  }
+
+  .restaurant .right {
+    padding: 0;
+    margin-top: 50px;
+  }
+
+  footer .payment {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  footer {
+    margin-top: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Center text content within the footer */
+  
+  }
+}
+
+@media only screen and (max-width:768px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .home .text {
+    margin: 30% 0 0 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+  }
+
+  .home h1 {
+    font-size: 110px;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+.btn2{
+  display: none;
+}
+
+  .home p {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+    font-size: 13px;
+  }
+
+  .about p {
+    margin: 50px 0 0 0;
+  }
+
+  .wrapper .text {
+    font-size: 12px;
+    height: auto; /* Remove fixed height */
+    overflow: auto;
+    margin-bottom: 0; /* Set margin to 0 */
+    padding-bottom: 0; /* Set padding to 0 */
+  }
+  
+
+  .wrapper2 .para {
+    font-size: 13px;
+    overflow: auto;
+  }
+
+  .heading_top {
+    margin-bottom: 10vh;
+
+  }
+
+  .heading_top button {
+    display: none;
+  }
+
+  .restaurant .flex {
+    flex-direction: column-reverse;
+
+  }
+
+  #people-two {
+    font-size: 50px;
+  }
+  .map .heading {
+    margin-left: 40px;
+    margin-top: 1vh;
+  }
+.heading_top {
+  margin-top: 30vh;
+}
+  
+
+/*--------------media querries--------*/
+
+/* For screen widths up to 320px (e.g., iPhone SE) */
+
+
+/* For screen widths between 321px and 375px (e.g., iPhone 6, 6s, 7, 8) */
+
+@media screen and (width: 280px) and (height: 653px) {
+  .heading_top {
+    margin-top: 100vh;
+  }
+
+}
+
+/* For screen widths between 376px and 768px (e.g., various tablets) */
+@media screen and (width: 412px) and (height: 915px) {
+  .about {
+    margin-bottom: 90px;
+  }
+  .home {
+    margin-top: 120px;
+    margin-bottom: 80px;
+    
+  }
+  .heading_top {
+    margin-top: 20vh;
+  }
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Center text content within the footer */
+  }
+  /* Add your styles for 412x915 screens here */
+}
+
+@media screen and (width: 820px) and (height: 1180px) {
+  .about {
+    margin-bottom: 90px;
+  }
+  .home {
+    margin-top: 10%;
+    margin-bottom: 70%;
+  }
+
+  .nav-book {
+    color: #1E1E1E;
+    background-color: #FFD700;
+    padding: 2px 20px;
+  }
+  .nav-book:hover {
+    background-color: #808080;
+    color: white;
+    padding: 20px 80px;
+  }
+  /* Add your styles for 820x1180 screens here */
+}
+
+@media screen and (width: 768px) and (height: 1024px) {
+  .left {
+    text-align: center; /* Center the content within the left column */
+  }
+
+  .right {
+    text-align: center; /* Center the content within the right column */
+  }
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Center text content within the footer */
+  }
+ /* Add your styles for 768x1024 screens here */
+}
+
+@media screen and (width: 912px) and (height: 1368px) {
+  .about {
+    margin-bottom: 90px;
+  }
+  .home {
+    margin-top: 50%;
+    margin-bottom: 50%;
+  }  /* Add your styles for 912x1368 screens here */
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Center text content within the footer */
+  }
+}
+@media screen and (width: 280px) and (height: 653px) {
+  .about {
+    margin-bottom: 90px;
+  }
+  .home {
+    margin-top: 50%;
+    margin-bottom: 20%;
+  } 
+
+  .img {
+    right: 25%; 
+  }
+  #thumbnailContainer {
+    display: none;
+  }
+  .home .text {
+    margin: 20% 0 0 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+  }
+
+  .home h1 {
+    font-size: 20px;
+  }
+
+  .home p {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
+    font-size: 13px;
+  }
+  .left {
+    text-align: left; /* Center the content within the left column */
+  }
+
+  .right {
+    text-align: left; /* Center the content within the right column */
+  }
+  #feedbacks-button {
+    margin-left: 30px;
+  }
+  footer {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    text-align: left; /* Center text content within the footer */
+  }
+  /* Add your styles for 280x653 screens here */
+}
+
+@media screen and (width: 1024px) and (height: 1366px) {
+  .about {
+    margin-bottom: 90px;
+  }
+  .home {
+    margin-top: 50%;
+    margin-bottom: 50%;
+  }  /* Add your styles for 912x1368 screens here */
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Center text content within the footer */
+  }
+}
+
+
+@media screen and (width: 1024px) and (height: 600px) {
+  .about {
+    margin-bottom: 90px;
+  }
+  .home {
+    margin-top: -15%;
+
+  }  /* Add your styles for 912x1368 screens here */
+}
+
+
+@media screen and (width: 800px) and (height: 1280px) {
+  .about {
+    margin-bottom: 100px;
+  }
+  .home {
+    margin-top: 100%;
+
+  }  /* Add your styles for 912x1368 screens here */
+  .nav-book {
+    color: #1E1E1E;
+    background-color: #FFD700;
+    padding: 2px 20px;
+  }
+  .nav-book:hover {
+    background-color: #808080;
+    color: white;
+    padding: 20px 80px;
+  }
+}
+
+@media screen and (width: 991px) and (height: 1280px) {
+  .about {
+    margin-bottom: 90px;
+  }
+  .home {
+    margin-top: 60%;
+
+  }  /* Add your styles for 912x1368 screens here */
+}
+
+@media screen and (width: 1600px) and (height: 2560px) {
+  .about {
+    margin-bottom: 90px;
+  }
+  .home {
+    margin-top: 100%;
+
+  }  /* Add your styles for 912x1368 screens here */
+}
+
+@media screen and (width: 720px) and (height: 1280px) {
+  .about {
+    margin-bottom: 90px;
+  }
+  .home {
+    margin-top: 60%;
+
+  }  /* Add your styles for 912x1368 screens here */
+}
+
+@media screen and (width: 4096px) and (height: 2304px) {
+  .about {
+    margin-bottom: 90px;
+  }
+  .home {
+    margin-top: 30%;
+
+  }  /* Add your styles for 912x1368 screens here */
+}
+

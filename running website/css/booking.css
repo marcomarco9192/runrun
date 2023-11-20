@@ -1,0 +1,595 @@
+@font-face {
+  font-family: 'Kyiv Sans';
+  src: url('/assets/fonts/KyivTypeSans.woff2') format('woff2-variations');
+  font-weight: 0 1000;
+  font-display: swap;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'Kyiv Sans', serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 80%;
+  margin: auto;
+}
+
+.head_container {
+  max-width: 90%;
+  margin: auto;
+}
+
+/*--------------header--------*/
+header {
+  height: 8vh;
+}
+
+.logo img {
+  width: 120px;
+}
+header nav {
+  background-color:  #1A1A1A; /* Colore giallo */
+  padding: 20px 10px; /* Aggiungi spazio sopra/sotto al background se necessario */
+  width: 100%; /* Larghezza al 100% del background */
+  top: 0; /* Inizia dall'alto della finestra */
+  right: 0; /* Inizia dal lato destro della finestra */
+  position: absolute;
+  display: flex; /* Assicurati che i contenuti siano allineati orizzontalmente */
+  justify-content: left; /* Allinea il menu a destra */
+}
+
+.nav-book {
+  color: #1E1E1E;
+  background-color: #FFD700;
+  padding: 10px 80px;
+}
+.nav-book:hover {
+  background-color: #808080;
+  color: white;
+  padding: 20px 80px;
+}
+
+/* Stili per il menu (ul, li, a, ecc.) */
+
+
+
+.hambuger {
+  display: none;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  transition: all 0.3s ease-in-out;
+  background-color: #fff;
+}
+
+header ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header ul li {
+  margin-left: 3rem;
+}
+
+header ul li a {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: white;
+  position: relative;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+header ul li a:hover::before,
+header ul li a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #FFD700;
+}
+
+header ul li a:hover::before {
+  top: -3px;
+}
+
+header ul li a:hover::after {
+  bottom: -3px;
+}
+@media only screen and (max-width: 768px) {
+  header ul {
+    display: block;
+    position: fixed;
+    left: -100%;
+    top: 5rem;
+    flex-direction: column;
+    background-color: #fff;
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.5s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+  }
+
+  header ul.active {
+    left: 0%;
+  }
+
+  header ul li {
+    margin: 2.5rem 0;
+  }
+
+  header ul li a {
+    color: black;
+  }
+
+  .hambuger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .hambuger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hambuger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hambuger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+/*--------------header--------*/
+/*--------------home--------*/
+.home .image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.home .text {
+  max-width: 50%;
+  color: white;
+  margin: 20% 0 0 10%;
+}
+
+.home h1 {
+  font-size: 80px;
+  font-weight: 400;
+}
+
+.home p {
+  font-weight: 400;
+  line-height: 25px;
+
+  font-size: 17px;
+  margin: 50px 0 0 50px;
+}
+
+button {
+  padding: 20px 40px;
+  background: none;
+  outline: none;
+  border: 2px solid white;
+  border-radius: 50px;
+  color: white;
+  margin-top: 20px;
+}
+
+.home button {
+  margin-left: 50px;
+}
+
+.home .image_item {
+  position: absolute;
+  top: 20%;
+  right: 20%;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.home .image_item img {
+  width: 140px;
+  height: 94px;
+  margin: 10px;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+
+.home .image_item img.active {
+  border: 2px solid white;
+}
+
+.home .box .text {
+  position: relative;
+}
+
+.home .box .text::after {
+  position: absolute;
+  content: 'D';
+  font-size: 500px;
+  top: -120%;
+  font-weight: bold;
+  opacity: 0.1;
+}
+
+
+#thumbnailContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#thumbnailContainer.active {
+  opacity: 1;
+}
+
+.slide {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.slide.active {
+  transform: scale(1);
+}
+
+.slide:hover {
+  transform: scale(1.1);
+}
+
+/*--------------home--------*/
+/*--------------book--------*/
+.book input[type="text"],
+.book input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #1E1E1E;
+  border-radius: 6px;
+  font-size: 18px;
+  color: #1E1E1E;
+  margin-bottom: 20px;
+}
+
+/* You can adjust the styling for these fields as needed. */
+
+.book {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px; /* Increased padding for more spacing */
+    margin: 5% auto;
+    max-width: 500px;
+    max-height: fit-content;
+  }
+  
+  .book label {
+    display: block;
+    font-size: 16px; /* Increased font size */
+    color: #1E1E1E;
+    margin-bottom: 10px; /* Increased margin bottom for more spacing */
+    
+  }
+  
+  .book input[type="date"],
+  .book select {
+    width: 100%;
+    padding: 12px; /* Increased padding for larger input fields */
+    border: 1px solid #1E1E1E;
+    border-radius: 6px; /* Increased border radius for rounded corners */
+    font-size: 18px; /* Increased font size */
+    color: #333;
+    margin-bottom: 20px; /* Increased margin bottom for more spacing */
+  }
+  
+  .book .price {
+    font-size: 20px; /* Increased font size */
+    color: #1E1E1E;
+    font-weight: bold;
+  }
+
+  .book .time {
+    font-size: 20px; /* Increased font size */
+    color: #1E1E1E;
+    font-weight: bold; /* Increased margin top for more spacing */
+  }
+
+  .book .meeting {
+    font-size: 20px; /* Increased font size */
+    color: #1E1E1E;
+    font-weight: bold;
+
+  }
+
+  .book .duration {
+    font-size: 20px; /* Increased font size */
+    color: #1E1E1E;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  
+  .book input[type="submit"] {
+    background-color: #1E1E1E;
+    color:  white;
+    border: none;
+    padding: 12px 24px; /* Increased padding for larger button */
+    border-radius: 6px; /* Increased border radius for rounded corners */
+    font-size: 20px; /* Increased font size */
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .book input[type="submit"]:hover {
+    background-color: #808080;
+    color: white;
+  }
+
+  .book .search {
+    width: 100%;
+  }
+
+
+  .book1 {
+    margin-left: 10%;
+    margin-top: 5%;
+    width: 100%;
+    height: 20vh;
+    color: white;
+  }
+
+
+  /*--------------footer--------*/
+.top {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 60px;
+  }
+
+  footer {
+    text-align: center; /* Center the content within the footer */
+    padding: 20px; /* Add space around the content */
+    margin-bottom: 20px; /* Optional: Add space above the footer */
+    margin-top: -150px;
+  }
+
+  footer h3 {
+    margin-bottom: 20px;
+  }
+  
+  footer li {
+    margin-bottom: 15px;
+    transition: 0.5s;
+  }
+  
+  footer li:hover {
+    color: #FF4500;
+    cursor: pointer;
+  }
+
+@media only screen and (max-width:768px) {
+    .home .box .text {
+      max-width: 100%;
+    }
+  
+    .home .box .text::after,
+    .home .image_item {
+      display: none;
+    }
+  
+    .restaurant .container,
+    .about .container,
+    .book .container {
+      flex-direction: column;
+    }
+    
+    .home .image img {
+     display: none;
+    }
+  
+    .grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  
+    .book {
+      margin-top: none;
+      height: auto;
+      background-color: #FFD700;
+    }
+  
+    .book .search {
+      width: 100%;
+    }
+
+  
+    .book .search input {
+      margin-top: 0;
+    }
+  
+    .left, .right {
+      width: 100%;
+    }
+  
+    .wrapper .text {
+      width: 80%;
+    }
+  
+    .room {
+      margin-bottom: 100px;
+    }
+  
+    .room .grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  
+    .restaurant .right {
+      padding: 0;
+      margin-top: 50px;
+    }
+  
+    footer .payment {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+  footer {
+        text-align: center; /* Center the content within the footer */
+        padding: 20px; /* Add space around the content */
+        margin-bottom: 20px; /* Optional: Add space above the footer */
+    }
+    footer h3 {
+      margin-bottom: 20px;
+    }
+    
+    footer li {
+      margin-bottom: 15px;
+      transition: 0.5s;
+    }
+    
+    footer li:hover {
+      color: #FF4500;
+      cursor: pointer;
+    }
+  
+    
+  }
+  
+  @media only screen and (max-width:768px) {
+    .grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  
+    .home .text {
+      margin: 10% 0 0 0;
+    }
+  
+    .home h1 {
+      font-size: 40px;
+    }
+  
+    .about p,
+    .home p {
+      margin: 50px 0 0 0;
+    }
+  
+    .wrapper .text {
+      padding: 10px;
+      height: 600px;
+    }
+  
+    .heading_top {
+      margin-top: 100px;
+    }
+  
+    .heading_top button {
+      display: none;
+    }
+  
+    .restaurant .flex {
+      flex-direction: column-reverse;
+    }
+  }
+
+
+  @media screen and (width: 912px) and (height: 1368px) {
+    footer {
+      margin-top: 300px;
+    }
+  }
+
+  @media screen and (width: 820px) and (height: 1180px) {
+    footer {
+      margin-top: 300px;
+    }
+  }
+  @media screen and (width: 1024px) and (height: 1366px) {
+    .home {
+      margin-top: -20%;
+      margin-bottom: 50%;
+    }  /* Add your styles for 912x1368 screens here */
+    footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center; /* Center text content within the footer */
+    }
+  }
+
+  @media screen and (width: 1024px) and (height: 600px) {
+    .home {
+      position: absolute;
+      margin-top: 0%;
+
+    }  /* Add your styles for 912x1368 screens here */
+    footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center; /* Center text content within the footer */
+    }
+  }
+
+
+@media screen and (width: 800px) and (height: 1280px) {
+  .home {
+    margin-top:25%;
+
+  }  /* Add your styles for 912x1368 screens here */
+}
+
+@media screen and (width: 991px) and (height: 1280px) {
+  .home {
+    margin-top:25%;
+
+  }  /* Add your styles for 912x1368 screens here */
+}
+
+@media screen and (width: 1600px) and (height: 2560px) {
+  .home {
+    margin-top: 50%;
+  }  /* Add your styles for 912x1368 screens here */
+  footer {
+    display: none;
+  }
+}
+
+@media screen and (width: 4096px) and (height: 2304px) {
+ /* Add your styles for 912x1368 screens here */
+  footer {
+    display: none;
+  }
+}
+
+
+  

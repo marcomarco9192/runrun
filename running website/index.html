@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <title>Hotel Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="
+    script-src 'self' https://code.jquery.com https://cdnjs.cloudflare.com 'unsafe-inline';">
+
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript">
+        window.onload = function () {
+            window.scrollTo(0, 0);
+        }
+    </script>
+</head>
+
+<body>
+  <header class="header" id="navigation-menu">
+      <div class="container">
+          <nav>
+              <a href="#" class="logo" aria-label="This is our logo">
+                  <img src="image/logo.png" alt="">
+              </a>
+              <ul class="nav-menu menu-bg">
+                  <li><a href="#home" class="nav-link">Home</a></li>
+                  <li><a href="#about" class="nav-link">About</a></li>
+                  <li><a href="#before" class="nav-link">Before You Go</a></li>
+                  <li><a href="#routes" class="nav-link">Routes</a></li>
+                  <li><a href="#gallery" class="nav-link">Photo</a></li>
+                  <li><a href="booking.html" class="nav-link nav-book">Book Now</a></li>
+              </ul>
+              <div class="hambuger">
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+              </div>
+          </nav>
+      </div>
+  </header>  
+
+  <script>
+    const hambuger = document.querySelector('.hambuger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hambuger.addEventListener("click", mobileMenu);
+
+    function mobileMenu() {
+        hambuger.classList.toggle("active");
+        navMenu.classList.toggle("active");
+    }
+
+    const navLink = document.querySelectorAll('.nav-link');
+    navLink.forEach((n) => n.addEventListener("click", closeMenu));
+
+    function closeMenu() {
+        hambuger.classList.remove("active");
+        navMenu.classList.remove("active");
+    }
+  </script>
+
+
+  <section class="home" id="home">
+    <div class="head_container">
+        <div class="box">
+            <div class="box">
+                <div class="text">
+                    <h1 class="entrance">Run in Venice!</h1>
+                    <p class="entrance">Join the tour to explore Venice's main   attractions and promenades. During your run with us, you'll have   the opportunity to savor the tranquil morning views of the city,   immerse yourself in its vibrant rhythm, and even feel like a   Venetian on a morning jog. We'll also capture numerous photos to   help you cherish the beauty of Venice!</p>
+                    <a href="booking.html" class="entrance"><button class="btn2">RUN!</button></a>
+                </div>
+            </div>
+            <div class="image">
+                <img src="image/home-two.WebP" alt="Background image" class="slide   blur-entrance" id="mainImage">
+            </div>
+        </div>
+    </div>
+  </section>
+
+
+  <section class="about top" id="about">
+    <div class="container flex">
+      <div class="left">
+        <div class="img">
+          <img src="image/about-me-video.mp4" alt="" class="image1" loading="lazy">
+        </div>
+      </div>
+      <div class="right">
+        <div class="heading">
+          <h2>Venice Sunrise Running Tour</h2>
+          <h5>About your guide</h5>
+          <p>Hey there :) My name is Denis. I have been a resident of Venice for over 10 years, and as an avid runner, I am thrilled to offer you an unforgettable experience of a serene morning city center, along with showcasing the main water-based attractions of the city. An added bonus for you is the opportunity to start your day with a refreshing workout and good vibes, which will surely accompany you throughout the rest of the day. Ready?</p>
+          <div class="button-container">
+            <button class="btn1" id="feedbacks-button">FEEDBACKS</button>
+            <a href="https://youtube.com/shorts/bceRTZ_x8hI?si=rAdlRcawxpTc-7ST">
+              <button class="btn1" id="feedbacks-button-two">WATCH NOW</button>
+            </a>
+          </div>
+        </div>
+      </div>
+        
+    </div>
+  </section>
+  <section class="wrapper top" id="before">
+    <div class="container">
+        <div class="text">
+            <h2>KNOW BEFORE YOU GO</h2>
+            <p>Runners of various abilities and paces are welcome! This isn't a competitive race but rather an enjoyable journey through Venice at a relaxed pace. Our approach is inclusive, with the group adjusting to the pace of the slowest runner, ensuring no one gets left behind. Rest assured, you're in good company!</p>
+            <p>Regardless, it's important to be an active individual who takes pleasure in physical activity and can comfortably run a minimum of 5 kilometers (or 3 miles) without interruption before considering participation in this tour.</p>
+            <p>We only allow minors of 18 years old when they have the expressed authorization of their parents or responsible adults</p>
+            <p>Our experience starts on time. To avoid ruining the other guests' experience, we kindly ask you to arrive at our meeting point around 5 minutes earlier. </p>
+            <p>Our tours take place regardless of the weather conditions. If the weather becomes unfavorable, we will get in touch with you to discuss cancellations and rescheduling. If you don't receive a message from us, it indicates that the tour is proceeding as planned.</p>
+            <p>We want to ensure that your Venice Running Morning Tour is enjoyable and safe. However, it's important to note that we do not assume responsibility for any unforeseen circumstances or events during the tour. While we make every effort to provide a positive experience, participants should be aware of their own limitations and act responsibly. Safety is our top priority, and we encourage all participants to follow our guidelines and recommendations to have a memorable and secure running adventure in Venice.</p>
+
+            <div class="content">
+
+            </div>
+        </div>
+    </div>
+ </section>
+
+  
+  <section class="room top" id="routes">
+
+ </section>
+
+  <script>
+    document.querySelector("#routes").addEventListener("click", function () {
+      window.location.href = "booking.html";
+    });
+  </script>
+
+ <section class="wrapper wrapper2 top">
+   <div class="container">
+       <div class="text">
+           <div class="para">
+               <p>"Amazing way to see Venice! This tour was my first outing in Venice,  and I was able to see the highlights of the whole city before most  people were even awake. Later in the day I went back to some of the  locations we ran through, and I could hardly walk through the crowds!  Dennis made for a super fun environment, and our group had a really fun  chat over gifted espresso and croissants after!"</p>
+               <p>"This was by far the best tour I did in Venice. An early start  meeting on the Rialto Bridge at 6 am but walking to the meetup you note  all the necessary early morning activities of the restocking of the  bars and restaurants while everyone sleeps. There were only 3 of us, I  only jog 5k a couple of times a week and the other lady was a Marathon  runner but Denis paced us both perfectly. We did a gentle run round 3  districts stopping to point out various areas of interest including a  beautiful sunrise above Giudecca. In August I did not expect to have  Venice to myself but I did. Do not hesitate to book with Denis, he is  kind, knowledgeable and the perfect host!"</p>
+               <p>"Felt like I was on a morning run with a friend- exactly what I  wanted! We stopped to take a few photos as well. Highly recommend!"</p>
+               <p>Super run matinal, j’ai adoré cette manière de visiter la ville au crépuscule. Denis est très sympathique et prévenant, le rythme de la course a été adaptée à l’ensemble du groupe. On termine tranquillement dans un joli café, et dans une ambiance décontractée. Très chouette expérience que je recommande sans aucune réserve. Merci beaucoup Denis!</p>
+           </div>
+       </div>
+   </div>
+ </section>
+
+
+  <script>
+    // Get a reference to the button and the target section
+    const feedbacksButton = document.getElementById('feedbacks-button');
+    const wrapper2Section = document.querySelector('.wrapper2');
+  
+    // Add a click event listener to the button
+    feedbacksButton.addEventListener('click', function () {
+      // Calculate the distance to scroll
+      const offsetTop = wrapper2Section.offsetTop;
+  
+      // Scroll to the "wrapper2" section with smooth behavior
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth',
+      });
+    });
+  </script>
+
+
+  <script>
+    var accItem = document.getElementsByClassName('accordionItem');
+    var accHD = document.getElementsByClassName('accordionIHeading');
+
+    for (i = 0; i < accHD.length; i++) {
+      accHD[i].addEventListener('click', toggleItem, false);
+    }
+
+    function toggleItem() {
+      var itemClass = this.parentNode.className;
+      for (var i = 0; i < accItem.length; i++) {
+        accItem[i].className = 'accordionItem close';
+      }
+      if (itemClass == 'accordionItem close') {
+        this.parentNode.className = 'accordionItem open';
+      }
+    }
+  </script>
+
+  <section class="gallery mtop" id="gallery">
+    <div class="container">
+        <div class="heading_top flex1">
+            <div class="heading">
+                <h2 id="people-two">WELCOME TO OUR PHOTO GALLERY OF THE TOUR</h2>
+            </div>
+            <div class="button">
+                <a href="https://instagram.com/runinvenice?igshid=OGQ5ZDc2ODk2ZA%3D%3D&  utm_source=qr" aria-label="Find more pictures on our Social"   target="_blank" rel="noopener">
+                    <button class="btn1">INSTA GALLERY</button>
+                </a>
+            </div>
+        </div>
+  
+        <div class="image-gallery">
+            <div class="gallery-item">
+                <img src="image/gallery-one.WebP" alt="">
+            </div>
+            <div class="gallery-item">
+                <img src="image/gallery-two.WebP" alt="">
+            </div>
+            <div class="gallery-item">
+                <img src="image/gallery-three.WebP" alt="">
+            </div>
+            <div class="gallery-item">
+                <img src="image/gallery-four.WebP" alt="">
+            </div>
+        </div>
+        
+    </div>
+  </section>
+  
+
+  <section class="map top">
+     <div class="heading">
+        <h2 id="people">MEETING POINT: RIALTO BRIDGE</h2>
+     </div>
+     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d11153.381967019436!2d12.3332673!3d45.4383683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1en!2it!4v1637763215366&q=Rialto%20Bridge&output=embed&ll=45.4383683,12.3332673&z=17&markers=45.4383683,12.3332673&hl=en"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" title="Meeting Point - Rialto Bridge"></iframe>
+  </section>
+
+  <footer>
+    <div class="container grid top">
+        <div class="box">
+            <h3>Accepted payment methods</h3>
+            <div class="payment grid">
+                <img width="48" height="48" src="https://img.icons8.com/color/48/stripe.png" alt="stripe"/>
+                <img src="https://img.icons8.com/color/48/000000/mastercard.png" alt="Mastercard logo" />
+                <img src="https://img.icons8.com/color-glass/48/000000/paypal.png" alt="Paypal logo" />
+            </div>
+        </div>
+
+        <div class="box">
+            <h3>Our Partners' Tours</h3>
+            <ul>
+                <li>Secret Island Boat Tour Is Just for You</li>
+                <li>Chill and Escape in Natural Shelters</li>
+                <li>Boat Tour to San Servolo</li>
+                <li>Live Music Concerts in Venice</li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <h3>For Customers</h3>
+            <ul>
+                <li>About Us</li>
+                <li>Customer Care/Help</li>
+                <li>Financial Information</li>
+                <li>Terms & Conditions</li>
+            </ul>
+        </div>
+
+        <div class="box">
+            <h3>Contact Us</h3>
+            <ul>
+                <li><i class="far fa-envelope"></i> runninginvenice@gmail.com</li>
+                <li><i class="far fa-phone-alt"></i> +39 389 64 64 645 </li>
+            </ul>
+        </div>
+    </div>
+ </footer>
+
+  
+</body>
+</html>

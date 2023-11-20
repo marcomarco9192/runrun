@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <title>Hotel Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://code.jquery.com https://cdn.jsdelivr.net 'unsafe-inline';">
+
+  <link rel="stylesheet" href="css/booking.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="/script.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+  <script type="text/javascript">
+    (function () {
+      emailjs.init("kgC_dwGunN4Lt4Ly4");
+    })();
+  </script>
+
+</head>
+
+
+<body>
+  <header class="header" id="navigation-menu">
+    <div class="container">
+      <nav>
+        <a href="#" class="logo"> <img src="image/logo.png" alt=""> </a>
+
+        <ul class="nav-menu menu-bg">
+          <li> <a href="index.html" class="nav-link nav-book">Home</a> </li>
+        </ul>
+
+        <div class="hambuger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <script>
+    const hambuger = document.querySelector('.hambuger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    hambuger.addEventListener("click", mobileMenu);
+
+    function mobileMenu() {
+      hambuger.classList.toggle("active");
+      navMenu.classList.toggle("active");
+    }
+
+    const navLink = document.querySelectorAll('.nav-link');
+    navLink.forEach((n) => n.addEventListener("click", closeMenu));
+
+    function closeMenu() {
+      hambuger.classList.remove("active");
+      navMenu.classList.remove("active");
+    }
+  </script>
+
+<!---->
+  <section class="home" id="home">
+      <div class="image">
+        <img src="image/home-one.WebP" alt="View of Giudecca" class="slide">
+      </div>
+  </section>
+
+  <section class="book">
+    <h2>Book Your Tour Now</h2>
+    <p>Fill in the form</p>
+    <div class="container flex">
+        <div class="input grid">
+            <div class="box">
+                <label>Full Name:</label>
+                <input type="text" id="fullName" placeholder="Full Name" required>
+            </div>
+    
+            <div class="box">
+                <label>Email:</label>
+                <input type="email" id="email_id" placeholder="Email Address" required>
+            </div>
+            <div class="box">
+                <label>Dates:</label>
+                <input type="date" id="check_in_date" name="check_in_date" required>
+            </div>
+            <div class="box">
+                <label>Guests:</label>
+                <select name="select" id="#">
+                    <option value="1">1 adult</option>
+                </select>
+            </div>
+            <div class="box">
+              <label for="message">Note:</label>
+              <textarea id="message" name="message" rows="3" placeholder="Enter your note here"></textarea>
+            </div>
+            <div class="price">
+              <h5>Price: <span>&euro;35/person</span></h5>
+            </div>
+          <div class="time">
+              <h5>Time: <span>7am-8am</span></h5>
+          </div>
+          <div class="meeting">
+              <h5>Meeting point: <span>Rialto Bridge/Your Hotel</span></h5>
+          </div>
+          <div class="duration">
+              <h5>Duration: <span>1hr</span></h5>
+          </div>
+          <div class="search">
+            <input type="submit" value="PAY NOW" onclick="sendMailAndRedirect();">
+          </div>
+        </div>
+    </div>
+  </section>
+
+
+  <script>
+    function sendMailAndRedirect() {
+      if (validateForm()) {
+        SendMail(redirectToPayPalPage);
+      }
+    }
+  
+    function validateForm() {
+      var fullName = document.getElementById("fullName").value.trim();
+      var email = document.getElementById("email_id").value.trim();
+      var checkInDate = document.getElementById("check_in_date").value.trim();
+  
+      // Basic validation for each field
+      if (fullName === "") {
+        alert("Full Name must not be empty");
+        return false;
+      }
+  
+      // You can add more specific email validation using regex
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert("Invalid email address");
+        return false;
+      }
+  
+      if (checkInDate === "") {
+        alert("Check-in Date must not be empty");
+        return false;
+      }
+  
+      if (message === "") {
+        alert("Message must not be empty");
+        return false;
+      }
+  
+      // If all validations pass
+      return true;
+    }
+  
+    function SendMail(callback) {
+      var params = {
+        from_name: document.getElementById("fullName").value,
+        email_id: document.getElementById("email_id").value,
+        date: document.getElementById("check_in_date").value,
+        message: document.getElementById("message").value
+      };
+  
+      emailjs.send("service_zpdd4fh", "template_1ntz03n", params).then(function (res) {
+        alert("Success! Now, please, proceed with payment.");
+        if (callback && typeof callback === "function") {
+          callback();
+        }
+      });
+    }
+  </script>
+
+  <script>
+    function redirectToPayPalPage() {
+      // Redirect to the PayPal-integrated page
+      window.location.href = 'paypal.html';
+    }
+  </script>
+
+  <section class="book1">
+  </section>
+
+  <footer>
+    <div class="container grid top">
+      <div class="box">
+        <h3>Accepted payment methods</h3>
+        <div class="payment grid">
+          <img width="48" height="48" src="https://img.icons8.com/color/48/stripe.png" alt="stripe" />
+          <img src="https://img.icons8.com/color/48/000000/mastercard.png" alt="Mastercard logo" />
+          <img src="https://img.icons8.com/color-glass/48/000000/paypal.png" alt="Paypal logo" />
+        </div>
+      </div>
+  
+      <div class="box">
+        <h3>Our Partners' Tours</h3>
+        <ul>
+          <li>Secret Island Boat Tour Is Just for You</li>
+          <li>Chill and Escape in a Natural Shelters</li>
+          <li>Boat Tour to San Servolo</li>
+          <li>Live Music Concerts in Venice</li>
+        </ul>
+      </div>
+  
+      <div class="box">
+        <h3>For Customers</h3>
+        <ul>
+          <li>About Us</li>
+          <li>Customer Care/Help</li>
+          <li>Financial Information</li>
+          <li>Terms & Conditions</li>
+        </ul>
+      </div>
+  
+      <div class="box">
+        <h3>Contact Us</h3>
+        <ul>
+          <li><i class="far fa-envelope"></i> runninginvenice@gmail.com</li>
+          <li><i class="far fa-phone-alt"></i> +39 389 64 64 645 </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
